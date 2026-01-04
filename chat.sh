@@ -2,11 +2,6 @@
 
 _DIR=$(dirname "${BASH_SOURCE[0]}")
 
-# check dependencies
-for cmd in jq gum curl; do
-    command -v "$cmd" &>/dev/null || { echo "Error: '$cmd' is required but not installed." >&2; exit 1; }
-done
-
 # check API key file
 [[ ! -f "$_DIR/.id" ]] && { echo "Error: .id file not found. Copy .id.example to .id and add your API key." >&2; exit 1; }
 
